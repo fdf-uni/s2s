@@ -1,7 +1,8 @@
 # Sums of two squares in Python
 
 The script `sums_of_two_squares.py` provides - as the name suggest - an implementation of some functions regarding sums of two squares.
-It can also be used as a command line program, see [Usage](#usage).
+It's main purpose is to find all representations of a non-negative integer as a sum of two squares.
+For this purpose, it can also be used as a command line program, see [Usage](#usage).
 
 ## How it works
 
