@@ -130,19 +130,20 @@ def sum_of_two_squares(n):
 
 
 def print_representations(n):
+    """
+    Print the representations of n as a sum of two squares which are found by
+    sum_of_two_squares. Requires tabulate.
+    """
     # Get result
     res = sum_of_two_squares(n)
 
     # Output result
+    input_message = f"Input: n = {n:,}."
     if res[0] == 0:
-        print(
-            f"Input: n = {n:,}.",
-            "No representations exist, r_2(n) = 0.",
-            sep="\n",
-        )
+        print(input_message, "No representations exist, r_2(n) = 0.", sep="\n")
     else:
         print(
-            f"Input: n = {n:,}.",
+            input_message,
             f"r_2(n) = {res[0]:,}. The representations are:",
             tabulate(
                 [
