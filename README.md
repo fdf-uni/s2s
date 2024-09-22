@@ -10,14 +10,14 @@ The first is an algorithm to find a representation of a prime $p \equiv 1 \pmod 
 The second one is the [Brahmagupta-Fibonacci identity [BF]](https://en.wikipedia.org/wiki/Brahmagupta%E2%80%93Fibonacci_identity) and the third (implicit one) is [Jacobi's two-square theorem [J]](https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem#Jacobi's_two-square_theorem).
 
 With these remarks out of the way, we can describe how the algorithm for finding all representation of $n$ as a sum of two squares works:
-- Factorize $n = p_1^{\nu_1} \cdots p_r^{\nu_r}$  with distinct primes $p_j$, $1 \le j \le r$.
+- Factorize $n = p_1^{\nu_1} \cdots p_r^{\nu_r}$ with distinct primes $p_j$, $1 \le j \le r$.
 - For every $p_j$ proceed as follows:
     - If $p_j \equiv 3 \pmod 4$ and $\nu_j$ is even, store $(0, p_j^{\nu_j/2})$ (which up to order and signs is the only representation by [J]).
         If $\nu_j$ is odd, quit since in this case $n$ cannot be written as a sum of two squares.
     - If $p_j \equiv 1 \pmod 4$, find the representation of $p_j$ as a sum of two squares as described in [[1]](#1).
     - If $p_j = 2$ store $(1,1)$ (which is once again up to signs unique).
 - For every prime $p_j \not\equiv 3 \pmod 4$, calculate representations of $p_j^{\nu_j}$ by repeatedly applying [BF].
-- Start with $(0, 1)$ and for every $j \in \{0, \dots, r\}$ apply [BF] to $p_1^{\nu_1} \cdots p_{j - 1}^{\nu_j - 1}$ and $p_j^{\nu_j}$ to obtain all representations for $p_1^{\nu_1} \cdots p_j^{\nu_j}$.
+- Start with $(0, 1)$ and for every $j = 0, \dots, r$ apply [BF] to $p_1^{\nu_1} \cdots p_{j - 1}^{\nu_j - 1}$ and $p_j^{\nu_j}$ to obtain all representations for $p_1^{\nu_1} \cdots p_j^{\nu_j}$.
 
 That _all_ representations are actually found like this follows from:
 1. If $n = p q$ is a sum of two squares and $p$ is a prime which can be written as a sum of two squares, then so can $q$ (this is a proposition by Euler).
